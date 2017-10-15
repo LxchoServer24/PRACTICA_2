@@ -1,0 +1,77 @@
+//practica 2
+//hacer un blackjack(21)
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main(){
+	system("color 64");
+	srand(time(NULL));
+	char op;
+	int carta,cont;
+	printf("-------BLACKJACK-------\n");
+	printf("\nNueva partida[s/n]:\t");
+	fflush(stdin);
+	scanf("%c",&op);
+	while(op=='s'||op=='S'){
+		cont=0;	
+	for(int i=1;i<=2;i++){
+	   carta=0;
+	    carta=1+(rand()%11);
+		printf("\ncarta #%i:[%i]\t",i,carta);
+		cont=cont+carta;
+		continue;
+	}
+	if(cont==21){
+		printf("\nGANASTES\n");
+	break;
+	}
+	if(cont>21){
+		printf("\nPERDISTES\n");
+	break;
+	}
+	if(cont<21){
+		int con_aux=0, aux2=0,aux3;
+	char a;
+	printf("\nquieres otra carta??[s/n]:\t");
+	fflush(stdin);
+	scanf("%c",&a);
+	while(a=='s'||a=='S'){
+		aux3=0;
+		int aux=0;
+		aux=1+(rand()%11);
+		printf("\ntu nueva carta es: [%i]",aux);
+		con_aux=cont+aux+aux2;
+		aux2=0;
+		aux2=con_aux;
+		aux3=aux2;
+	if(con_aux==21){
+	printf("\nGANASTES\n");
+	break;
+	}
+	if(con_aux>21){
+		printf("\nPERDISTES\n");
+	break;
+	}
+	if(con_aux<21){
+		con_aux=0;
+	printf("\nquieres otra carta??[s/n]:\t");
+		fflush(stdin);
+		scanf("%c",&a);
+	}
+	continue;
+	}
+		if(a!='s'||a!='S' && aux3<21 ){
+		printf("\ngracias por jugar\n");
+		printf("ganarias pero te quedastes debajo del 21\n");
+	}	
+	}
+	printf("\nNueva partida[s/n]:\t");
+	fflush(stdin);
+	scanf("%c",&op);	
+	continue;
+	}
+	if(op!='s'||op!='S'){
+	printf("\ngracias por jugar\n");
+	}
+	return 0;
+}
